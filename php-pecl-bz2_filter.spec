@@ -1,0 +1,71 @@
+%define		_modname	bz2_filter
+%define		_status		stable
+
+Summary:	%{_modname} - bz2 filter implementation backport for PHP 5.0
+Summary(pl):	%{_modname} - backport implementacji filtra bz2 dla PHP 5.0
+Name:		php-pecl-%{_modname}
+Version:	1.1.0
+Release:	1
+License:	PHP
+Group:		Development/Languages/PHP
+Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
+# Source0-md5:	c27893a03c6dadb70489473938ff0495
+URL:		http://pecl.php.net/package/bz2_filter/
+BuildRequires:	libtool
+BuildRequires:	php-devel >= 3:5.0.0
+Requires:	php-common >= 3:5.0.0
+Obsoletes:	php-pear-%{_modname}
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_sysconfdir	/etc/php
+%define		extensionsdir	%{_libdir}/php
+
+%description
+bzip2 compress/decompress stream filter implementation. Performs inline
+compression/decompression using the bzip2 algorythm on any PHP I/O
+stream. The data produced by this filter, while compatable with the
+payload portion of a bz2 file, does not include headers or tailers for
+full bz2 file compatability. To achieve this format, use the
+compress.bzip2:// fopen wrapper built directly into PHP.
+
+In PECL status of this extension is: %{_status}.
+
+%description -l pl
+Implementacja filtra kompresji/dekompresji strumienia bzip2. Wykonuje
+kompresjê/dekompresjê algorytmem bzip2 na dowolnym strumieniu I/O PHP.
+Dane stworzone przez ten filtr, bêd±c kompatybilnymi z czê¶ci± pliku
+bzip2 zawieraj±c± payload, nie zawieraj± nag³ówków ani koñcówek dla
+pe³nej zgodno¶ci z bz2. Aby uzyskaæ ten format, trzeba u¿yæ wrappera
+fopen compress.bzip2:// wbudowanego bezpo¶rednio w PHP.
+
+To rozszerzenie ma w PECL status: %{_status}.
+
+%prep
+%setup -q -c
+
+%build
+cd %{_modname}-%{version}
+phpize
+%configure
+%{__make}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{extensionsdir}
+
+install %{_modname}-%{version}/modules/%{_modname}.so $RPM_BUILD_ROOT%{extensionsdir}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%post
+%{_sbindir}/php-module-install install %{_modname} %{_sysconfdir}/php-cgi.ini
+
+%preun
+if [ "$1" = "0" ]; then
+	%{_sbindir}/php-module-install remove %{_modname} %{_sysconfdir}/php-cgi.ini
+fi
+
+%files
+%defattr(644,root,root,755)
+%attr(755,root,root) %{extensionsdir}/%{_modname}.so
