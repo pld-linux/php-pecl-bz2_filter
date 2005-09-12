@@ -21,11 +21,11 @@ Obsoletes:	php-pear-%{_modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-bzip2 compress/decompress stream filter implementation. Performs inline
-compression/decompression using the bzip2 algorythm on any PHP I/O
-stream. The data produced by this filter, while compatable with the
-payload portion of a bz2 file, does not include headers or tailers for
-full bz2 file compatability. To achieve this format, use the
+bzip2 compress/decompress stream filter implementation. Performs
+inline compression/decompression using the bzip2 algorythm on any PHP
+I/O stream. The data produced by this filter, while compatable with
+the payload portion of a bz2 file, does not include headers or tailers
+for full bz2 file compatability. To achieve this format, use the
 compress.bzip2:// fopen wrapper built directly into PHP.
 
 In PECL status of this extension is: %{_status}.
@@ -74,5 +74,5 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/conf.d/%{_modname}.ini
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/conf.d/%{_modname}.ini
 %attr(755,root,root) %{extensionsdir}/%{_modname}.so
