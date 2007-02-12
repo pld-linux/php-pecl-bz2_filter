@@ -1,7 +1,7 @@
 %define		_modname	bz2_filter
 %define		_status		stable
 Summary:	%{_modname} - bz2 filter implementation backport for PHP 5.0
-Summary(pl):	%{_modname} - backport implementacji filtra bz2 dla PHP 5.0
+Summary(pl.UTF-8):   %{_modname} - backport implementacji filtra bz2 dla PHP 5.0
 Name:		php-pecl-%{_modname}
 Version:	1.1.0
 Release:	6
@@ -27,13 +27,13 @@ compress.bzip2:// fopen wrapper built directly into PHP.
 
 In PECL status of this extension is: %{_status}.
 
-%description -l pl
+%description -l pl.UTF-8
 Implementacja filtra kompresji/dekompresji strumienia bzip2. Wykonuje
-kompresjê/dekompresjê algorytmem bzip2 na dowolnym strumieniu I/O PHP.
-Dane stworzone przez ten filtr, bêd±c kompatybilnymi z czê¶ci± pliku
-bzip2 zawieraj±c± payload, nie zawieraj± nag³ówków ani koñcówek dla
-pe³nej zgodno¶ci z bz2. Aby uzyskaæ ten format, trzeba u¿yæ wrappera
-fopen compress.bzip2:// wbudowanego bezpo¶rednio w PHP.
+kompresjÄ™/dekompresjÄ™ algorytmem bzip2 na dowolnym strumieniu I/O PHP.
+Dane stworzone przez ten filtr, bÄ™dÄ…c kompatybilnymi z czÄ™Å›ciÄ… pliku
+bzip2 zawierajÄ…cÄ… payload, nie zawierajÄ… nagÅ‚Ã³wkÃ³w ani koÅ„cÃ³wek dla
+peÅ‚nej zgodnoÅ›ci z bz2. Aby uzyskaÄ‡ ten format, trzeba uÅ¼yÄ‡ wrappera
+fopen compress.bzip2:// wbudowanego bezpoÅ›rednio w PHP.
 
 To rozszerzenie ma w PECL status: %{_status}.
 
