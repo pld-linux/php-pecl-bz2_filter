@@ -1,7 +1,7 @@
 %define		_modname	bz2_filter
 %define		_status		stable
 Summary:	%{_modname} - bz2 filter implementation backport for PHP 5.0
-Summary(pl.UTF-8):   %{_modname} - backport implementacji filtra bz2 dla PHP 5.0
+Summary(pl.UTF-8):	%{_modname} - backport implementacji filtra bz2 dla PHP 5.0
 Name:		php-pecl-%{_modname}
 Version:	1.1.0
 Release:	6
