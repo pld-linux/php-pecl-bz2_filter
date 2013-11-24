@@ -5,7 +5,7 @@ Summary:	%{modname} - bz2 filter implementation backport for PHP 5.0
 Summary(pl.UTF-8):	%{modname} - backport implementacji filtra bz2 dla PHP 5.0
 Name:		%{php_name}-pecl-%{modname}
 Version:	1.1.0
-Release:	7
+Release:	8
 License:	PHP
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
